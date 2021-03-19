@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Test data created files (not fastas)
+test_data/*
+!test_data/*.fasta

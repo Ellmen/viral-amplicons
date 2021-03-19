@@ -1,5 +1,3 @@
-from math import prod
-
 def count_degenerate(seq):
     nts = ['A','C','G','T']
     count = 0
@@ -7,6 +5,13 @@ def count_degenerate(seq):
         if bp not in nts:
             count += 1
     return count
+
+
+def prod(lst):
+    val = 1.0
+    for n in lst:
+        val *= n
+    return val
 
 
 def degeneracy(seq):

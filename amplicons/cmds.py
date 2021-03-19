@@ -87,11 +87,12 @@ def make_primer_hits():
     )
 
 
-def amplicon_hits(primers_fp):
+# TODO: specify sequences file
+def amplicon_hits(primers_fp, seqs_fp='sequences.fasta'):
     # -f sequences.fasta -P min_deg_primers.txt
     from primerprospector.analyze_primers import analyze_primers
     analyze_primers(
-        fasta_fps='sequences.fasta',
+        fasta_fps=seqs_fp,
         verbose=False,
         output_dir='.',
         primers_filepath=primers_fp,

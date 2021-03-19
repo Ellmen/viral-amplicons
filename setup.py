@@ -8,8 +8,9 @@ setup(
     author='Isaac Ellmen',
     author_email='isaac.ellmen@uwaterloo.ca',
     packages=['amplicons'],
-    dependency_links=[
-        'https://github.com/Ellmen/viral-amplicons',
+    install_requires=[
+        'cogent3',
+        'primerprospector @ git+https://github.com/Ellmen/primerprospector3'
     ],
     entry_points={
         'console_scripts': ['amplicons=amplicons.command_line:main'],

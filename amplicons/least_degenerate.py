@@ -8,7 +8,7 @@ def count_degenerate(seq):
 
 
 def prod(lst):
-    val = 1.0
+    val = 1
     for n in lst:
         val *= n
     return val

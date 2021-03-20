@@ -8,8 +8,8 @@ class Amplicons(object):
     def __str__(self):
         return "Find amplicons for viral metagenomics"
 
-    def find(self, reference_name, alignment_name):
-        find(reference_name, alignment_name)
+    def find(self, reference_name, sequences_name, alignment_name):
+        find(reference_name, sequences_name, alignment_name)
 
     def ld(self):
         least_degenerate()

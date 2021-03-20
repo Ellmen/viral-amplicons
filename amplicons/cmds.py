@@ -87,7 +87,6 @@ def make_primer_hits():
     )
 
 
-# TODO: specify sequences file
 def amplicon_hits(primers_fp, seqs_fp='sequences.fasta'):
     # -f sequences.fasta -P min_deg_primers.txt
     from primerprospector.analyze_primers import analyze_primers
@@ -107,7 +106,7 @@ def amplicon_hits(primers_fp, seqs_fp='sequences.fasta'):
     )
 
 
-def find(reference_name, alignment_name):
+def find(reference_name, sequences_name, alignment_name):
     print('Generating primers...')
     generate_primers(reference_name, alignment_name)
     print('Done!')
@@ -118,5 +117,5 @@ def find(reference_name, alignment_name):
     print('Finding amplicon hits...')
     for i in range(n):
         print('Getting hits for pair {}/{}'.format(i+1, n))
-        amplicon_hits('primers/primers_{}.txt'.format(i+1))
+        amplicon_hits('primers/primers_{}.txt'.format(i+1), sequences_name)
     print('Done!')

@@ -17,7 +17,7 @@ Generate primer hits and amplicons:
 
 ```
 cd test_data
-amplicons find sars-cov-2.fasta aligned.fasta
+amplicons find sars-cov-2.fasta sequences.fasta aligned.fasta
 ```
 
 Find lowest degeneracy primer pair:

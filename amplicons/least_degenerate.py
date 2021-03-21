@@ -53,7 +53,7 @@ def least_degenerate():
         # c2 = count_degenerate(p2[1])
         c1 = degeneracy(p1[1])
         c2 = degeneracy(p2[1])
-        print(c1 + c2)
+        print('{}\t{}\t{}'.format(p1[0], p2[0], c1+c2))
         if c1 + c2 < min_count:
             min_count = c1 + c2
             min_chunk = chunk
@@ -62,3 +62,9 @@ def least_degenerate():
 
     print('Least degenerate primers ({}) degeneracy combined'.format(min_count))
     print('\n'.join(min_chunk))
+    print('Simulated amplicon reads for these primers can be generated with:')
+    # amplicons get_amplicons sequences.fasta 18065f 18307r
+    p1 = min_chunk[0][:min_chunk[0].find('\t')]
+    p2 = min_chunk[1][:min_chunk[1].find('\t')]
+    print('amplicons get_amplicons [SEQUENCES_FASTA] {} {}'.format(p1, p2))
+    print('(where [SEQUENCES_FASTA] is the name of your sequences file)')

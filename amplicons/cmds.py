@@ -106,6 +106,28 @@ def amplicon_hits(primers_fp, seqs_fp='sequences.fasta'):
     )
 
 
+def amplicon_reads(sequences_name, p1, p2):
+    # -f sars-cov-2.fasta -i 22926f_sars-cov-2_hits.txt:23216r_sars-cov-2_hits.txt
+    from primerprospector.get_amplicons_and_reads import get_amplicons_and_reads
+    s_name = sequences_name[:sequences_name.rfind('.fasta')]
+    p_hit_str = '{}_{}_hits.txt:{}_{}_hits.txt'.format(
+        p1,
+        s_name,
+        p2,
+        s_name
+    )
+    get_amplicons_and_reads(
+        primer_hits=p_hit_str,
+        fasta_fps=sequences_name,
+        output_dir='.',
+        score_type='weighted_score',
+        score_threshold=1.0,
+        min_seq_len=100,
+        read_direction='f',
+        read_len=250
+    )
+
+
 def find(reference_name, sequences_name, alignment_name):
     print('Generating primers...')
     generate_primers(reference_name, alignment_name)
@@ -119,3 +141,10 @@ def find(reference_name, sequences_name, alignment_name):
         print('Getting hits for pair {}/{}'.format(i+1, n))
         amplicon_hits('primers/primers_{}.txt'.format(i+1), sequences_name)
     print('Done!')
+
+
+def get_amplicons(sequences_name, p1, p2):
+    print('Generating amplicons reads..')
+    amplicon_reads(sequences_name, p1, p2)
+    # 18065f_18307r_amplicons.fasta
+    print('Done! Simulated reads in {}_{}_amplicons.fasta'.format(p1, p2))

@@ -25,3 +25,9 @@ Find lowest degeneracy primer pair:
 ```
 amplicons ld
 ```
+
+Generate simulated reads for the generated amplicon
+
+```
+amplicons get_amplicons sequences.fasta 18065f 18307r
+```

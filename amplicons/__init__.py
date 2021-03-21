@@ -1,4 +1,4 @@
-from .cmds import find
+from .cmds import find, get_amplicons
 from .least_degenerate import least_degenerate
 
 
@@ -13,3 +13,6 @@ class Amplicons(object):
 
     def ld(self):
         least_degenerate()
+
+    def get_amplicons(self, sequences_name, p1, p2):
+        get_amplicons(sequences_name, p1, p2)

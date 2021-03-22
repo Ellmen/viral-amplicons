@@ -10,6 +10,7 @@ setup(
     packages=['amplicons'],
     install_requires=[
         'cogent3',
+        'fire',
         'primerprospector @ git+https://github.com/Ellmen/primerprospector3'
     ],
     entry_points={
